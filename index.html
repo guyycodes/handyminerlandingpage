@@ -25,14 +25,12 @@
 
     <!--
       ===== Open Graph / social =====
-      Two image variants are advertised so each platform can pick the one
-      that fits its layout best:
-        - og-image.png        (1200 x 630)  -> Facebook, LinkedIn, Slack,
-                                              Twitter `summary_large_image`
-        - og-image-square.png (1200 x 1200) -> iMessage, WhatsApp, Discord,
-                                              Telegram, mobile chat clients
-      Most scrapers honor the FIRST og:image as the primary, so the
-      landscape card is listed first.
+      Single 1200x1200 square card. The brand mark is square, so a
+      square share image looks right in every context: iMessage /
+      WhatsApp / Discord show it clean in the chip, Facebook / LinkedIn
+      / Slack render it as a tall card, and Twitter is set to the
+      `summary` card type below so the square image isn't letterboxed
+      inside a wide slot.
     -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="HandyMiner" />
@@ -48,21 +46,19 @@
     <meta property="og:image:secure_url" content="https://handyminer.ai/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="HandyMiner — Lead mining for the trades" />
-
-    <meta property="og:image" content="https://handyminer.ai/og-image-square.png" />
-    <meta property="og:image:secure_url" content="https://handyminer.ai/og-image-square.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="1200" />
     <meta property="og:image:alt" content="HandyMiner — Lead mining for the trades" />
 
     <!-- Legacy crawlers (Pinterest, older link unfurlers). -->
     <link rel="image_src" href="https://handyminer.ai/og-image.png" />
 
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <!--
+      Twitter / X
+      `summary` (small square chip) instead of `summary_large_image`
+      because our hero image is 1:1 — using the large card type would
+      letterbox the square inside a wide slot.
+    -->
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@handyminer" />
     <meta name="twitter:creator" content="@handyminer" />
     <meta name="twitter:title" content="HandyMiner — Lead mining for the trades" />
@@ -112,10 +108,7 @@
         "height": 512,
         "caption": "HandyMiner pickaxe brand mark"
       },
-      "image": [
-        "https://handyminer.ai/og-image.png",
-        "https://handyminer.ai/og-image-square.png"
-      ],
+      "image": "https://handyminer.ai/og-image.png",
       "description": "HandyMiner is an AI lead-mining agent for trades businesses. It learns from every job you log and surfaces more leads that look like your best customers.",
       "email": "support@handyminer.com",
       "address": { "@type": "PostalAddress", "addressCountry": "US" },
@@ -156,7 +149,7 @@
         "@type": "ImageObject",
         "url": "https://handyminer.ai/og-image.png",
         "width": 1200,
-        "height": 630
+        "height": 1200
       }
     }
     </script>
@@ -169,10 +162,7 @@
       "@id": "https://handyminer.ai/#software",
       "name": "HandyMiner",
       "url": "https://handyminer.ai/",
-      "image": [
-        "https://handyminer.ai/og-image.png",
-        "https://handyminer.ai/og-image-square.png"
-      ],
+      "image": "https://handyminer.ai/og-image.png",
       "screenshot": "https://handyminer.ai/og-image.png",
       "description": "An AI lead-mining agent for tradesmen. Connect a Google Sheet of jobs you've quoted and HandyMiner mines public business listings, permit data and review feeds for new leads — learning from every win and loss to get sharper week after week.",
       "applicationCategory": "BusinessApplication",
