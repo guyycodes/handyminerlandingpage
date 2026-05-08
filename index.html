@@ -23,44 +23,80 @@
 
     <link rel="canonical" href="https://handyminer.ai/" />
 
-    <!-- Open Graph / social -->
+    <!--
+      ===== Open Graph / social =====
+      Two image variants are advertised so each platform can pick the one
+      that fits its layout best:
+        - og-image.png        (1200 x 630)  -> Facebook, LinkedIn, Slack,
+                                              Twitter `summary_large_image`
+        - og-image-square.png (1200 x 1200) -> iMessage, WhatsApp, Discord,
+                                              Telegram, mobile chat clients
+      Most scrapers honor the FIRST og:image as the primary, so the
+      landscape card is listed first.
+    -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="HandyMiner" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://handyminer.ai/" />
-    <meta property="og:title" content="HandyMiner — AI Lead Mining for the Trades" />
+    <meta property="og:title" content="HandyMiner — Lead mining for the trades" />
     <meta
       property="og:description"
       content="Learns what works. Brings you more like it. An AI lead-mining agent for roofers, plumbers, electricians, painters, carpenters and contractors."
     />
+
     <meta property="og:image" content="https://handyminer.ai/og-image.png" />
     <meta property="og:image:secure_url" content="https://handyminer.ai/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="HandyMiner — AI lead mining for the trades" />
+    <meta property="og:image:alt" content="HandyMiner — Lead mining for the trades" />
+
+    <meta property="og:image" content="https://handyminer.ai/og-image-square.png" />
+    <meta property="og:image:secure_url" content="https://handyminer.ai/og-image-square.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:alt" content="HandyMiner — Lead mining for the trades" />
+
+    <!-- Legacy crawlers (Pinterest, older link unfurlers). -->
+    <link rel="image_src" href="https://handyminer.ai/og-image.png" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="HandyMiner — AI Lead Mining for the Trades" />
+    <meta name="twitter:site" content="@handyminer" />
+    <meta name="twitter:creator" content="@handyminer" />
+    <meta name="twitter:title" content="HandyMiner — Lead mining for the trades" />
     <meta
       name="twitter:description"
       content="Learns what works. Brings you more like it. Built for tradesman by tradesman — roofers, plumbers, electricians, painters, carpenters &amp; contractors."
     />
     <meta name="twitter:image" content="https://handyminer.ai/og-image.png" />
-    <meta name="twitter:image:alt" content="HandyMiner — AI lead mining for the trades" />
+    <meta name="twitter:image:alt" content="HandyMiner — Lead mining for the trades" />
 
-    <!-- Favicon (inline SVG) -->
+    <!--
+      ===== Icons =====
+      The inline-SVG favicon stays as the primary (sharp at every zoom),
+      with PNG fallbacks for browsers that prefer raster + iOS home-screen
+      / iMessage avatar (apple-touch-icon, 180x180).
+    -->
     <link
       rel="icon"
       type="image/svg+xml"
       href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236aa9ff' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M3 8 Q 12 3 21 8' /><path d='M3 8 L4.5 9.5 M21 8 L19.5 9.5' /><path d='M12 5 L12 21' /></svg>"
     />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="HandyMiner" />
 
     <link rel="stylesheet" href="./styles.css" />
 
     <!-- ===== Structured data (JSON-LD) ===== -->
-    <!-- Organization: brand identity for the knowledge panel. -->
+    <!--
+      Organization: brand identity for the knowledge panel.
+      `logo` MUST be a square ImageObject (Google's published guideline);
+      the wide social card lives in `image` instead.
+    -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -71,11 +107,15 @@
       "url": "https://handyminer.ai/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://handyminer.ai/og-image.png",
-        "width": 1200,
-        "height": 630
+        "url": "https://handyminer.ai/logo.png",
+        "width": 512,
+        "height": 512,
+        "caption": "HandyMiner pickaxe brand mark"
       },
-      "image": "https://handyminer.ai/og-image.png",
+      "image": [
+        "https://handyminer.ai/og-image.png",
+        "https://handyminer.ai/og-image-square.png"
+      ],
       "description": "HandyMiner is an AI lead-mining agent for trades businesses. It learns from every job you log and surfaces more leads that look like your best customers.",
       "email": "support@handyminer.com",
       "address": { "@type": "PostalAddress", "addressCountry": "US" },
@@ -111,7 +151,13 @@
       "url": "https://handyminer.ai/",
       "description": "AI lead-mining agent that learns from every job you log and brings you more leads that look like your best customers.",
       "publisher": { "@id": "https://handyminer.ai/#organization" },
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://handyminer.ai/og-image.png",
+        "width": 1200,
+        "height": 630
+      }
     }
     </script>
 
@@ -123,7 +169,11 @@
       "@id": "https://handyminer.ai/#software",
       "name": "HandyMiner",
       "url": "https://handyminer.ai/",
-      "image": "https://handyminer.ai/og-image.png",
+      "image": [
+        "https://handyminer.ai/og-image.png",
+        "https://handyminer.ai/og-image-square.png"
+      ],
+      "screenshot": "https://handyminer.ai/og-image.png",
       "description": "An AI lead-mining agent for tradesmen. Connect a Google Sheet of jobs you've quoted and HandyMiner mines public business listings, permit data and review feeds for new leads — learning from every win and loss to get sharper week after week.",
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "Lead Generation",
